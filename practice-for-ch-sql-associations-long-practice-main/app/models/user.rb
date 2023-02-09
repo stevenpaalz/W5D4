@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
     has_many(
         :taught_courses,
-        primary_key: :id
+        primary_key: :id,
         foreign_key: :instructor_id,
         class_name: 'Course'
     )

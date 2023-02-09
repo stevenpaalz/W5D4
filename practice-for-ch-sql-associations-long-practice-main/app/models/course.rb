@@ -10,13 +10,10 @@ class Course < ApplicationRecord
     has_many :enrolled_students, through: :enrollments, source: :student
 
     has_one(
-         :prerequisite
+         :prerequisite,
          primary_key: :prereq_id,
          foreign_key: :id,
          class_name: 'Course'
-         
-       
-         
     )
 
     belongs_to(
@@ -24,7 +21,7 @@ class Course < ApplicationRecord
         primary_key: :prereq_id,
         foreign_key: :id,
         class_name: 'Course',
-        # optional: true
+        optional: true
     )
 
     belongs_to(
@@ -32,7 +29,6 @@ class Course < ApplicationRecord
         primary_key: :id,
         foreign_key: :instructor_id,
         class_name: 'User'
-        
     )
 
 
